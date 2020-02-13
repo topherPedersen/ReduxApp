@@ -22,11 +22,12 @@ class MyThirdChildComponent extends React.Component {
       <View>
         <Text>Third Child</Text>
 
-        {/* 
+        <Text>{ this.props.thingsToDo[this.props.thingsToDo.length - 1].task }</Text>
+         
         <Button 
           title="Debug Props"
           onPress={ () => alert(JSON.stringify(this.props)) }/>
-        */}
+        
 
         <Button 
           title="Dispatch Action to Reducer and Update State"
