@@ -15,18 +15,11 @@ class MySecondChildComponent extends React.Component {
     super(props)
   }
 
-  showLastTodoItem() {
-    let thingsToDo = this.props.thingsToDo;
-    let lastItem = thingsToDo[thingsToDo.length - 1].task;
-    return lastItem;
-  }
-
   render() {
 
     return(
       <View>
         <Text>Second Child</Text>
-        { /* <Text>Last todo item: { this.props.thingsToDo[this.props.thingsToDo.length - 1].task }</Text> */}
         <Text>{ this.props.thingsToDo[this.props.thingsToDo.length - 1].task }</Text>
       </View>
     );
