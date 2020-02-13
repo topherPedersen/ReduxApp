@@ -8,6 +8,8 @@ import {
   StatusBar,
 } from 'react-native';
 
+import { connect } from 'react-redux';
+
 class MySecondChildComponent extends React.Component {
   constructor(props) {
     super(props)
@@ -17,10 +19,14 @@ class MySecondChildComponent extends React.Component {
     return(
       <View>
         <Text>Second Child</Text>
-        {/* <Text>Second todo item: { this.props.thingsToDo[1] }</Text> */}
+        <Text>Second todo item: { this.props.thingsToDo[1].task }</Text>
       </View>
     );
   }
 }
 
-export default MySecondChildComponent;
+const mapStateToProps = state => ({
+  thingsToDo: state.thingsToDo
+});
+
+export default connect(mapStateToProps, null)(MySecondChildComponent);

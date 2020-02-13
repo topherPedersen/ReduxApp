@@ -21,7 +21,8 @@ class MyThirdChildComponent extends React.Component {
     return(
       <View>
         <Text>Third Child</Text>
-        {/*<Text>Third todo item: { this.props.thingsToDo[2] }</Text>*/}
+
+        <Text>Third todo item: { this.props.thingsToDo[2].task }</Text>
 
         <Button 
           title="Debug Props"
@@ -39,5 +40,4 @@ const mapStateToProps = state => ({
   thingsToDo: state.thingsToDo
 });
 
-// export default MyThirdChildComponent;
 export default connect(mapStateToProps, null)(MyThirdChildComponent);
