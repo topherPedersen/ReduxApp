@@ -16,10 +16,11 @@ class MySecondChildComponent extends React.Component {
   }
 
   render() {
+
     return(
       <View>
         <Text>Second Child</Text>
-        <Text>Second todo item: { this.props.thingsToDo[1].task }</Text>
+        <Text>Last todo item: { this.props.thingsToDo[this.props.thingsToDo.length - 1].task }</Text>
       </View>
     );
   }

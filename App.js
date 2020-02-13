@@ -32,8 +32,22 @@ function myReducer(state, action) {
     return initialState;
   }
 
-  // For now, just return state (blank reducer, does nothing)
-  return initialState;
+  if (action.type === 'MY_ACTION') {
+    let myPayload = action.payload; // we aren't actually using the payload in this example
+    console.log(myPayload);
+    let updatedState = state;
+    let indexOfNextTask = state.thingsToDo.length;
+    //http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
+    let randomString =  Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    updatedState.thingsToDo[indexOfNextTask] = {
+      task: randomString
+    };
+    return updatedState;
+  }
+
+  // If none of the conditions above are true,
+  // simply return the current state
+  return state;
 }
 
 const store = createStore(myReducer);

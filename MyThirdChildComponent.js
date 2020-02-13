@@ -22,15 +22,15 @@ class MyThirdChildComponent extends React.Component {
       <View>
         <Text>Third Child</Text>
 
-        <Text>Third todo item: { this.props.thingsToDo[2].task }</Text>
-
+        {/* 
         <Button 
           title="Debug Props"
           onPress={ () => alert(JSON.stringify(this.props)) }/>
+        */}
 
         <Button 
           title="Dispatch Action to Reducer and Update State"
-          onPress={ () => alert("still working on that part!") }/>
+          onPress={ () => this.props.myAction("my super sweet payload") }/>
       </View>
     );
   }
@@ -40,4 +40,10 @@ const mapStateToProps = state => ({
   thingsToDo: state.thingsToDo
 });
 
-export default connect(mapStateToProps, null)(MyThirdChildComponent);
+const mapDispatchToProps = dispatch => {
+  return {
+    myAction: (myPayload) => dispatch( { type: 'MY_ACTION', payload: myPayload } )
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyThirdChildComponent);
